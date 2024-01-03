@@ -1,0 +1,27 @@
+#root {
+  display: flex;
+}
+
+#main_title {
+  font-size: 2em;
+  text-align: left;
+  padding-left: 20px;
+}
+
+button {
+  background: black;
+  color: rebeccapurple;
+  border: 1px solid rebeccapurple;
+  border-radius: 7px;
+  height: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: .4s;
+  margin: 10px;
+  text-transform: lowercase;
+}
+
+button:hover {
+  background: rebeccapurple;
+  color: black;
+}
