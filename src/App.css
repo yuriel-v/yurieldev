@@ -1,15 +1,22 @@
 #root {
-  display: flex;
+  display: grid;
 }
 
-#main_title {
+#header {
+  display: flex;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+#mainTitle {
   font-size: 2em;
   text-align: left;
-  padding-left: 20px;
+  margin: 10px;
+  margin-left: 20px;
 }
 
 button {
-  background: black;
+  background: #111;
   color: rebeccapurple;
   border: 1px solid rebeccapurple;
   border-radius: 7px;
@@ -23,5 +30,9 @@ button {
 
 button:hover {
   background: rebeccapurple;
-  color: black;
+  color: #b8e;
+}
+
+.headerButton {
+  scale: 120%;
 }
