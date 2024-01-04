@@ -1,10 +1,11 @@
 {
     "en": {
-        "text": "Hi, it's a me, Yuriel."
+        "text": "Hi, it's a me, Yuriel.",
+        "tab_name": "About Me"
     },
     "pt": {
-        "text": "Oi, sou eu, Yuriel."
+        "text": "Oi, sou eu, Yuriel.",
+        "tab_name": "Sobre Eu"
     },
-    "class": "aboutme",
-    "tab_name": "About Me"
+    "class": "aboutme"
 }

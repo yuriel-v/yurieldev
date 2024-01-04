@@ -13,7 +13,7 @@ export const loadStrings = (lang) => {
   // {'cls': {'text': 'abc', 'class': 'cls'}}
   // for each string set
   while (i < strings.length) {
-    newContent[strings[i]["tab_name"]] = {
+    newContent[strings[i][lang]["tab_name"]] = {
       "class": strings[i]["class"],
       "text": strings[i][lang]["text"],
     };
