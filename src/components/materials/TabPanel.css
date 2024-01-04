@@ -1,3 +1,4 @@
-.main_box {
-    color: rebeccapurple;
+.aboutme, .careerfield, .hobbies {
+    color: darkcyan;
+    font-weight: bold;
 }

@@ -5,6 +5,7 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import { useState } from 'react';
 import { ThemeProvider } from '@mui/material';
+import './TabPanel.css'
 
 const CustomTabPanel = (props) => {
   const { children, value, index, ...other } = props;
@@ -66,7 +67,7 @@ const TabPanel = ({ content, theme }) => {
         </Box>
         {Object.keys(content).map((key, i) => (
           <CustomTabPanel value={value} index={i} key={key}>
-            {content[key]}
+            <span className={content[key].class}>{content[key].text}</span>
           </CustomTabPanel>
         ))}
       </Box>

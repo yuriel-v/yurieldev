@@ -1,45 +1,63 @@
 // CSS
-import { createTheme } from '@mui/material'
-import './App.css'
+import { createTheme } from "@mui/material";
+import "./App.css";
+
+// React
+import { useEffect, useState } from "react";
 
 // Custom components
-import TabPanel from './components/materials/TabPanel'
+import TabPanel from "./components/materials/TabPanel";
+import { loadStrings } from "./lib/Strings";
+
 
 function App() {
-  const content = {
-    "About me": "Hi, it's a me, Yuriel.",
-    "Career field": "Computer Science graduate, Jr. Systems Analyst with solid footing in both sides of DevOps.",
-    "Hobbies": "Cooking, cycling, developing and maintaining software solutions, playing games, reading manga.",
-  }
+  const defaultLanguage = "en";
+  const [content, setContent] = useState({});
+  const [language, setLanguage] = useState(defaultLanguage);
+
+  useEffect(() => {
+    setContent(loadStrings(language));
+  }, [language])
+
+  const handleLanguage = () => {
+    if (language == "en") {
+      setLanguage("pt");
+    } else {
+      setLanguage("en");
+    }
+  };
 
   const theme = createTheme({
     palette: {
-      background: '#111',
+      background: "#111",
       // how weird, the 'primary' key in 'text' is ignored,
       // so we have to change it like this
       primary: {
-        main: '#639'
+        main: "#96c",
       },
       // but the 'secondary' key is ignored in 'palette',
       // so we have to change it like this
       text: {
-        secondary: '#fff'
+        secondary: "#639",
       },
       action: {
-        active: '#96c'
+        active: "#639",
       },
     },
   });
 
+  // first load
+  //loadStrings(defaultLanguage);
+
   return (
     <>
       <div>
-        <h1 id='main_title'>yuriel.dev</h1>
-        <button id='ex_btn'>Example</button>
+        <h1 id="main_title">yuriel.dev</h1>
+        <button id="ex_btn" onClick={handleLanguage}>Example</button>
         <TabPanel content={content} theme={theme} />
       </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
