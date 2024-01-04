@@ -1,11 +1,16 @@
 #root {
+  display: grid;
+}
+
+#header {
   display: flex;
 }
 
-#main_title {
+#mainTitle {
   font-size: 2em;
   text-align: left;
-  padding-left: 20px;
+  margin: 10px;
+  margin-left: 20px;
 }
 
 button {
@@ -23,5 +28,11 @@ button {
 
 button:hover {
   background: rebeccapurple;
-  color: #111;
+  color: #b8e;
+}
+
+#langButton {
+  margin-top: 10px;
+  margin-left: 10px;
+  scale: 120%;
 }

@@ -1,13 +1,17 @@
 // CSS
-import { createTheme } from "@mui/material";
+import { ThemeProvider, createTheme } from "@mui/material";
 import "./App.css";
 
 // React
 import { useEffect, useState } from "react";
 
+// Material UI
+import IconButton from '@mui/material/IconButton';
+import LanguageIcon from '@mui/icons-material/Language';
+
 // Custom components
 import TabPanel from "./components/materials/TabPanel";
-import { loadStrings } from "./lib/Strings";
+import { changeLanguage } from "./lib/Strings";
 
 
 function App() {
@@ -16,10 +20,10 @@ function App() {
   const [language, setLanguage] = useState(defaultLanguage);
 
   useEffect(() => {
-    setContent(loadStrings(language));
+    setContent(changeLanguage(language));
   }, [language])
 
-  const handleLanguage = () => {
+  const handleLanguageToggle = () => {
     if (language == "en") {
       setLanguage("pt");
     } else {
@@ -33,7 +37,7 @@ function App() {
       // how weird, the 'primary' key in 'text' is ignored,
       // so we have to change it like this
       primary: {
-        main: "#96c",
+        main: "#b8e",
       },
       // but the 'secondary' key is ignored in 'palette',
       // so we have to change it like this
@@ -49,9 +53,23 @@ function App() {
   return (
     <>
       <div>
-        <h1 id="main_title">yuriel.dev</h1>
-        <button id="ex_btn" onClick={handleLanguage}>Example</button>
-        <TabPanel content={content} theme={theme} />
+        <div id="header">
+          <ThemeProvider theme={theme}>
+            <IconButton
+              id="langButton"
+              aria-label="Change language"
+              onClick={handleLanguageToggle}
+            >
+              <LanguageIcon />
+            </IconButton>
+          </ThemeProvider>
+        </div>
+        <div>
+          <h1 id="mainTitle">yuriel.dev</h1>
+        </div>
+        <div>
+          <TabPanel content={content} theme={theme} />
+        </div>
       </div>
     </>
   );

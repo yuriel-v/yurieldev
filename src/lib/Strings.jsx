@@ -5,7 +5,12 @@ import hobbies from "../assets/strings/hobbies.json";
 
 const strings = [aboutme, careerfield, hobbies];
 
-export const loadStrings = (lang) => {
+/**
+ * Generates a new string set with the specified language.
+ * @param {string} lang The new language. Possible values: 'en', 'pt'.
+ * @returns {object} An object containing the strings of the selected language.
+ */
+export const changeLanguage = (lang) => {
   let newContent = {};
   let i = 0;
 
