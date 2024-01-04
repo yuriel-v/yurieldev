@@ -1,0 +1,11 @@
+services:
+  frontend:
+    build: .
+    restart: always
+    ports:
+      #- "8080:80"  # uncomment if necessary
+      - "80:80"
+    environment:
+      YD_GITHUB: "https://github.com/yuriel-v"
+      YD_TITLE: "yuriel.dev"
+      YD_DEFAULT_LANG: "en"
