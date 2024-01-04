@@ -46,9 +46,6 @@ function App() {
     },
   });
 
-  // first load
-  //loadStrings(defaultLanguage);
-
   return (
     <>
       <div>
