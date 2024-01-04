@@ -18,7 +18,7 @@ import { changeLanguage } from "./lib/Strings";
 function App() {
   const githubLink = "https://github.com/yuriel-v";
   const defaultLanguage = "en";
-  const [content, setContent] = useState({});
+  const [content, setContent] = useState(changeLanguage(defaultLanguage));
   const [language, setLanguage] = useState(defaultLanguage);
 
   useEffect(() => {
@@ -57,13 +57,15 @@ function App() {
       <div>
         <div id="header">
           <ThemeProvider theme={theme}>
-            <IconButton
-              className="headerButton"
-              aria-label="Change language"
-              onClick={handleLanguageToggle}
-            >
-              <LanguageIcon />
-            </IconButton>
+            <Tooltip title={content.misc.langTooltip}>
+              <IconButton
+                className="headerButton"
+                aria-label="Change language"
+                onClick={handleLanguageToggle}
+              >
+                <LanguageIcon />
+              </IconButton>
+            </Tooltip>
 
             <Tooltip title={githubLink}>
               <IconButton
@@ -82,7 +84,7 @@ function App() {
         </div>
 
         <div>
-          <TabPanel content={content} theme={theme} />
+          <TabPanel content={content.tabs} theme={theme} />
         </div>
       </div>
     </>
