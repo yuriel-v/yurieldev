@@ -9,7 +9,7 @@
 }
 
 button {
-  background: black;
+  background: #111;
   color: rebeccapurple;
   border: 1px solid rebeccapurple;
   border-radius: 7px;
@@ -23,5 +23,5 @@ button {
 
 button:hover {
   background: rebeccapurple;
-  color: black;
+  color: #111;
 }
