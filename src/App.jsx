@@ -1,5 +1,5 @@
 // CSS
-import { ThemeProvider, createTheme } from "@mui/material";
+import { ThemeProvider, Tooltip, createTheme } from "@mui/material";
 import "./App.css";
 
 // React
@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 // Material UI
 import IconButton from '@mui/material/IconButton';
 import LanguageIcon from '@mui/icons-material/Language';
+import { GitHub } from "@mui/icons-material";
 
 // Custom components
 import TabPanel from "./components/materials/TabPanel";
@@ -15,6 +16,7 @@ import { changeLanguage } from "./lib/Strings";
 
 
 function App() {
+  const githubLink = "https://github.com/yuriel-v";
   const defaultLanguage = "en";
   const [content, setContent] = useState({});
   const [language, setLanguage] = useState(defaultLanguage);
@@ -56,17 +58,29 @@ function App() {
         <div id="header">
           <ThemeProvider theme={theme}>
             <IconButton
-              id="langButton"
+              className="headerButton"
               aria-label="Change language"
               onClick={handleLanguageToggle}
             >
               <LanguageIcon />
             </IconButton>
+
+            <Tooltip title={githubLink}>
+              <IconButton
+                className="headerButton"
+                aria-label="GitHub redirect"
+                onClick={() => { location.href = githubLink }}
+              >
+                <GitHub />
+              </IconButton>
+            </Tooltip>
           </ThemeProvider>
         </div>
+
         <div>
           <h1 id="mainTitle">yuriel.dev</h1>
         </div>
+
         <div>
           <TabPanel content={content} theme={theme} />
         </div>
